@@ -35,7 +35,7 @@ The simplest way to add the ADGraphView to your project is to directly add the s
 Usage
 =====
 
-In ASGraphView project there is a demo UIViewController (as viewController.m) which show a simple usage example.
+In ADGraphView project there is a demo UIViewController (as viewController.m) which show a simple usage example.
 
 -------
 License
