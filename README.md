@@ -16,7 +16,7 @@ ADGraphView works on any iOS version only greater or equal than 5.0 and is compa
 * UIKit.framework
 * CoreGraphics.framework
 
-You will need LLVM 3.0 or later in order to build MBProgressHUD. 
+You will need LLVM 3.0 or later in order to build ADGraphView. 
 
 ------------------------------------
 Adding ADGraphView to your project
