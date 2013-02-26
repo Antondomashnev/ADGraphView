@@ -18,16 +18,21 @@
 @property (nonatomic, strong) NSArray *pointsArray;
 @property (nonatomic, strong) UIColor *lineColor;
 
+@property (nonatomic, unsafe_unretained) CGFloat minPointY;
+@property (nonatomic, unsafe_unretained) CGFloat maxPointY;
+
 @end
 
 @implementation GraphLine
 
-- (id)initWithFrame:(CGRect)frame pointsArray:(NSArray *)thePointsArray {
+- (id)initWithFrame:(CGRect)frame pointsArray:(NSArray *)thePointsArray minY:(CGFloat)minY maxY:(CGFloat)maxY{
     self = [super initWithFrame:frame];
     if (self) {
         
         self.backgroundColor = [UIColor clearColor];
         self.pointsArray = thePointsArray;
+        self.minPointY = minY;
+        self.maxPointY = maxY;
         self.lineColor = [UIColor graphLightGreenColor];
     }
     return self;
@@ -56,7 +61,7 @@
         [path addLineToPoint: point];
     }
 
-    UIBezierPath *smoothPath = [path smoothedPathWithGranularity: BEZIER_PATH_GRANULARITY];
+    UIBezierPath *smoothPath = [path smoothedPathWithGranularity: BEZIER_PATH_GRANULARITY minY:self.minPointY maxY:self.maxPointY];
     [smoothPath stroke];
 }
 

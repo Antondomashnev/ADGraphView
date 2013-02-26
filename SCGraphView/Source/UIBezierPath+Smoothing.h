@@ -28,6 +28,6 @@
 
 @interface UIBezierPath (Smoothing)
 
-- (UIBezierPath*)smoothedPathWithGranularity:(NSInteger)granularity;
+- (UIBezierPath*)smoothedPathWithGranularity:(NSInteger)granularity minY:(CGFloat)minY maxY:(CGFloat)maxY;
 
 @end

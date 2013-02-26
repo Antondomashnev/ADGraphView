@@ -45,8 +45,9 @@ NSArray *pointsFromBezierPath(UIBezierPath *bpath)
     return points;
 }
 
-- (UIBezierPath*)smoothedPathWithGranularity:(NSInteger)granularity;
+- (UIBezierPath*)smoothedPathWithGranularity:(NSInteger)granularity minY:(CGFloat)minY maxY:(CGFloat)maxY
 {
+    
     NSMutableArray *points = [pointsFromBezierPath(self) mutableCopy];
     
     if (points.count < 4) return [self copy];
@@ -77,7 +78,20 @@ NSArray *pointsFromBezierPath(UIBezierPath *bpath)
             CGPoint pi; // intermediate point
             pi.x = 0.5 * (2*p1.x+(p2.x-p0.x)*t + (2*p0.x-5*p1.x+4*p2.x-p3.x)*tt + (3*p1.x-p0.x-3*p2.x+p3.x)*ttt);
             pi.y = 0.5 * (2*p1.y+(p2.y-p0.y)*t + (2*p0.y-5*p1.y+4*p2.y-p3.y)*tt + (3*p1.y-p0.y-3*p2.y+p3.y)*ttt);
-            [smoothedPath addLineToPoint:pi];
+            
+            if(pi.y > maxY){
+                
+                pi.y = maxY;
+            }
+            else if(pi.y < minY){
+                
+                pi.y = minY;
+            }
+            
+            if(pi.x > p0.x){
+                
+                [smoothedPath addLineToPoint:pi];
+            }
         }
         
         // Now add p2
@@ -89,6 +103,7 @@ NSArray *pointsFromBezierPath(UIBezierPath *bpath)
     
     return smoothedPath;
 }
+
 
 
 @end

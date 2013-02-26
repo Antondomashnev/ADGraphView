@@ -257,7 +257,7 @@
 
 - (void)drawLineWithPointsArray:(NSArray *)pointsArray{
     
-    self.objectsLine = [[GraphLine alloc] initWithFrame:self.bounds pointsArray:pointsArray];
+    self.objectsLine = [[GraphLine alloc] initWithFrame:self.bounds pointsArray:pointsArray minY:[self pointForValue:@(3) atDayNumber:0].y maxY:[self pointForValue:@(-3) atDayNumber:0].y];
     [self addSubview: self.objectsLine];
 }
 
