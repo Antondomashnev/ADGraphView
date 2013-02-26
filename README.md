@@ -47,6 +47,10 @@ This code is distributed under the terms and conditions of the MIT license.
 Change-log
 ==========
 
+**Version 0.51** @ 25.2.13
+
+- Fix incorrect anchor points bug.
+
 **Version 0.5** @ 25.2.13
 
 - Initial release.
